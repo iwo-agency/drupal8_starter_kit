@@ -95,6 +95,7 @@ docroot/sites/example.sites.php
 docroot/sites/default/default.services.yml
 docroot/sites/default/default.settings.php
 docroot/sites/default/development.services.yml
+docroot/themes/custom/example_theme/
 
 # Ignore Docksal local files
 .docksal/docksal-local.*
