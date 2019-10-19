@@ -1,0 +1,34 @@
+#!/bin/bash
+
+## IVO.Group package, v1.0
+##
+## Website: https://ivo.group
+## Author: ivan.berezhnov@icloud.com
+##
+## Run theme compilation using webpack
+##
+## Usage: fin tb <command>
+
+THEME_PATH_INSIDE_CONTAINER="/var/www/${DOCROOT}/themes/${THEME_NAME}"
+DOCROOT_PATH="${PROJECT_ROOT}/${DOCROOT}"
+MAIN_THEME_PATH="${DOCROOT_PATH}/themes/${THEME_NAME}"
+
+install_packages() {
+  fin exec "cd ${THEME_PATH_INSIDE_CONTAINER}; npm install"
+  set +e
+}
+
+echo "Running build the theme ${THEME_PATH_INSIDE_CONTAINER}"
+
+echo "${MAIN_THEME_PATH}/package-lock.json"
+
+if [ -f "${MAIN_THEME_PATH}/package-lock.json" ]; then
+    echo "package-lock.json is available, just running theme build..."
+else
+    echo "package-lock.json is not available, deleting node_modules and npm install\n"
+    rm -rf $THEME_PATH_INSIDE_CONTAINER/node_modules
+    install_packages
+fi
+
+
+fin exec "cd ${THEME_PATH_INSIDE_CONTAINER}; npm run $1"

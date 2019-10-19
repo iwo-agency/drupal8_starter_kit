@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+
+## IVO.Group package, v1.0
+##
+## Website: https://ivo.group
+## Author: ivan.berezhnov@icloud.com
+##
+## Initialize stack and site (full reset)
+##
+## Usage: fin init
+## Usage: fin init new
+
+# Abort if anything fails
+set -e
+
+#-------------------------- Helper functions --------------------------------
+
+# Console colors
+red='\033[0;31m'
+green='\033[0;32m'
+green_bg='\033[42m'
+yellow='\033[1;33m'
+NC='\033[0m'
+
+echo-red () { echo -e "${red}$1${NC}"; }
+echo-green () { echo -e "${green}$1${NC}"; }
+echo-green-bg () { echo -e "${green_bg}$1${NC}"; }
+echo-yellow () { echo -e "${yellow}$1${NC}"; }
+
+#-------------------------- Execution --------------------------------
+#Show some art
+clear
+
+# Stack initialization
+echo -e "${green_bg} Step 1 ${NC}${green} Initializing stack...${NC}"
+if [[ $DOCKER_RUNNING == "true" ]]; then
+	fin reset -f
+else
+	fin up
+fi
+
+echo "Waiting 10s for MySQL to initialize...";
+sleep 10
+
+# Importing Database
+if [[ "$1" != "new" ]]; then
+    echo -e "${green_bg} Step 2 ${NC}${green} Importing Database...${NC}"
+    fin db import $PROJECT_ROOT/db/database.sql --db=default --db-user=user --db-password=user
+fi
+
+# Site initialization
+echo -e "${green_bg} Step 2 ${NC}${green} Initializing site...${NC}"
+# This runs inside cli using http://docs.docksal.io/en/v1.4.0/fin/custom-commands/#executing-commands-inside-cli
+fin init-site $1
+
+
+echo-yellow "Reset admin password ..."
+cd docroot && fin drush upwd --password="admin" "admin"
+
+echo -en "${green_bg} DONE! ${NC} "
+echo -e " Welcome to: ${green}http://${VIRTUAL_HOST}${NC}"
+
+echo -e "Open ${yellow}http://${VIRTUAL_HOST}/user/login${NC} in your browser and login."
+echo -e "User:${yellow} admin ${NC}"
+echo -e "Pass:${yellow} admin ${NC}"
+
+#-------------------------- END: Execution --------------------------------

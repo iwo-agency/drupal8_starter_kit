@@ -1,0 +1,21 @@
+#!/bin/bash
+
+## IVO.Group package, v1.0
+##
+## Website: https://ivo.group
+## Author: ivan.berezhnov@icloud.com
+##
+## Initialize stack and site (full reset)
+##
+## Usage: fin phpcs <path to code>
+
+FILE="$1"
+
+cd "${PROJECT_ROOT}"
+fin run phpcs \
+    --standard=Drupal,DrupalPractice -s \
+    --colors \
+    --extensions="php,module,inc,install,test,profile,theme" \
+    --ignore="*.features.*,*.pages*.inc" \
+    --report-code \
+    $FILE

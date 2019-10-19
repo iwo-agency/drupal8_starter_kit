@@ -1,0 +1,209 @@
+{
+  "name": "DRUPAL 8 Starter Kit",
+  "description": "DRUPAL 8 Starter Kit",
+  "type": "project",
+  "license": "GPL",
+  "authors": [
+    {
+      "name": "Ivan Berezhnov",
+      "email": "ivan.berezhnov@icloud.com",
+      "homepage": "https://ivo.group",
+      "role": "CEO IVO.Group & Architect"
+    }
+  ],
+  "require": {
+    "bgrins/spectrum": "^1.8",
+    "composer/installers": "^1.2",
+    "cweagans/composer-patches": "^1.6",
+    "drupal-composer/drupal-scaffold": "^2.5",
+    "drupal/admin_toolbar": "^1.24",
+    "drupal/adminimal_admin_toolbar": "^1.9",
+    "drupal/adminimal_theme": "^1.4",
+    "drupal/color_field": "^2.0",
+    "drupal/confi": "1.4",
+    "drupal/config_update": "^1.6",
+    "drupal/commerce": "2.11",
+    "drupal/components": "^1.0",
+    "drupal/conditional_fields": "^1.0@alpha",
+    "drupal/config_split": "^1.4",
+    "drupal/console": "^1.0.2",
+    "drupal/contribute": "^5.0@beta",
+    "drupal/core": "~8.7.0",
+    "drupal/ctools": "^3.2",
+    "drupal/devel": "^2.1",
+    "drupal/field_group": "~3.0",
+    "drupal/dropzonejs": "^2.0@alpha",
+    "drupal/entity_browser": "^2.1",
+    "drupal/entity_browser_entity_form": "^2.1",
+    "drupal/file_download": "^1.3",
+    "drupal/geolocation": "^1.11",
+    "drupal/iframe": "^1.9",
+    "drupal/link_attributes": "^1.5",
+    "drupal/media_entity": "2.0.0-beta3",
+    "drupal/media_entity_image": "1.x-dev",
+    "drupal/media_entity_document": "1.x-dev",
+    "drupal/address": "1.4",
+    "drupal/media_entity_browser": "^2.0",
+    "drupal/libraries": "3.x-dev",
+    "drupal/datalayer": "1.x-dev",
+    "drupal/optimizely": "~3.1",
+    "drupal/google_tag": "~1.1",
+    "drupal/google_analytics": "~2.3",
+    "drupal/simple_sitemap": "3.0.0",    "drupal/plugin": "2.5",
+    "drupal/migrate_plus": "^4.0",
+    "drupal/migrate_tools": "~4.0",
+    "drupal/migrate_source_csv": "2.2",
+    "drupal/pathauto": "^1.3",
+    "drupal/redirect": "~1.3",
+    "drupal/paragraphs": "1.6",
+    "drupal/radix": "^4.2",
+    "drupal/radix_layouts": "^4.1",
+    "drupal/captcha": "1.0-beta1",
+    "drupal/recaptcha": "~2.3",
+    "drupal/rabbit_hole": "~1.0-beta4",
+    "drupal/search_api": "^1.10",
+    "drupal/sendgrid_integration": "^1.2",
+    "drupal/stage_file_proxy": "^1.0@alpha",
+    "drupal/svg_formatter": "^1.8",
+    "drupal/svg_image": "^1.9",
+    "drupal/swiftmailer": "^1.0@beta",
+    "drupal/token": "^1.5",
+    "drupal/twig_field_value": "^1.1",
+    "drupal/twig_tweak": "^2.1",
+    "drupal/video_embed_field": "^2.0",
+    "drupal/views_infinite_scroll": "^1.5",
+    "drupal/viewsreference": "^1.2",
+    "drupal/webform": "^5.2",
+    "drupal/workflow": "^1.1",
+    "drupal/better_exposed_filters": "~3.0-alpha5",
+    "drupal/custom_formatters": "3.0-alpha1",
+    "drupal/token_filter": "~1.1",
+    "drupal/views_data_export": "1.0-beta1",
+    "drupal/views_field_formatter": "~1.9",
+    "drupal/crop": "^2.0",
+    "drupal/yoast_seo": "^1.3",
+    "enyo/dropzone": "^5.5",
+    "es6-promise": "v4.1.0",
+    "league/commonmark": "^0.11",
+    "oomphinc/composer-installers-extender": "^1.1",
+    "vlucas/phpdotenv": "^2.4",
+    "webflo/drupal-core-require-dev": "~8.7.0",
+    "webflo/drupal-finder": "^1.0.0",
+    "webmozart/path-util": "^2.3",
+    "zaporylie/composer-drupal-optimizations": "^1.0"
+  },
+  "require-dev": {},
+  "conflict": {
+    "drupal/drupal": "*"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    },
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    },
+    {
+      "type": "package",
+      "package": {
+        "version": "v4.1.0",
+        "name": "es6-promise",
+        "type": "drupal-library",
+        "source": {
+          "url": "https://github.com/stefanpenner/es6-promise.git",
+          "type": "git",
+          "reference": "v4.1.0"
+        },
+        "dist": {
+          "url": "https://github.com/stefanpenner/es6-promise/archive/v4.1.0.zip",
+          "type": "zip"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "bgrins/spectrum",
+        "version": "1.8.0",
+        "type": "drupal-library",
+        "dist": {
+          "url": "https://github.com/bgrins/spectrum/archive/1.8.0.zip",
+          "type": "zip"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "enyo/dropzone",
+        "version": "v5.5.0",
+        "type": "drupal-library",
+        "dist": {
+          "url": "https://github.com/enyo/dropzone/archive/v5.5.0.zip",
+          "type": "zip"
+        }
+      }
+    }
+  ],
+  "autoload": {
+    "classmap": [
+      "scripts/composer/ScriptHandler.php"
+    ],
+    "files": [
+      "load.environment.php"
+    ]
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "@composer drupal-scaffold",
+      "bash scripts/remove_vendor_git_folders.sh || :"
+    ],
+    "post-update-cmd": [
+      "bash scripts/remove_vendor_git_folders.sh || :"
+    ],
+    "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
+  },
+  "extra": {
+    "installer-types": [ "bower-asset" ],
+    "installer-paths": {
+      "docroot/core": [ "type:drupal-core" ],
+      "docroot/libraries/{$name}": [ "type:drupal-library", "type:bower-asset" ],
+      "docroot/modules/contrib/{$name}": [ "type:drupal-module" ],
+      "docroot/profiles/contrib/{$name}": [ "type:drupal-profile" ],
+      "docroot/themes/contrib/{$name}": [ "type:drupal-theme" ],
+      "drush/Commands/{$name}": [ "type:drupal-drush" ]
+    },
+    "enable-patching": true,
+    "patches": {
+      "drupal/core": {
+        "1236098 - Notice: Undefined index in _color_rewrite_stylesheet()": "https://www.drupal.org/files/issues/undefined-index-in-_color_rewrite_stylesheet-1236098-37.patch",
+        "2484693 - Telephone Link field formatter InvalidArgumentException with 5 digits or fewer in the number": "https://www.drupal.org/files/issues/2484693-54.patch",
+        "2862702 - PrepareModulesEntityUninstallForm::formTitle does not exist": "https://www.drupal.org/files/issues/2862702-3.patch"
+      },
+      "drupal/crop": {
+        "3025005 - The Crop requirements is NOK is media_entity 8.x-2.0 installed via composer": "https://www.drupal.org/files/issues/2019-01-10/requirements-is-NOK-3025005-2.patch"
+      },
+      "drupal/media_entity": {
+        "2918172 - Media Entity upgrade -> add revision fields": "https://www.drupal.org/files/issues/2918172-5.patch",
+        "2918172 - Media Entity upgrade -> core fails on absent column revision_uid": "https://www.drupal.org/files/issues/2918172-6-8.4.4.patch"
+      },
+      "drupal/plugin": {
+        "2647312 - Use SubFormState in plugin selectors": "https://www.drupal.org/files/issues/plugin_2647312_20.patch"
+      },
+      "drupal/views_data_export": {
+        "2789531 - Support for batch operations": "https://www.drupal.org/files/issues/2789531-105.patch"
+      },
+      "drupal/entity_browser": {
+        "2845037 - Fixed the issue of Call to a member function getConfigDependencyKey() on null on [Widget view], and [SelectionDisplay view]": "https://www.drupal.org/files/issues/2845037_15.patch",
+        "2927347 - Having Entity Browser 2.x on the codebase breaks upgrade path": "https://www.drupal.org/files/issues/2019-01-10/Having-Entity-Browser-breaks-upgrade-path-2927347-14.patch"
+      }
+    }
+  }
+}
