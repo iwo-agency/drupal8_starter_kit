@@ -1,2 +1,2 @@
-# drupal8_starter_kit
+# DRUPAL 8 Starter Kit
 Drupal8 starter kit. Docksal, Cypress, BackStopJS, PHPUnit, Simpletest
