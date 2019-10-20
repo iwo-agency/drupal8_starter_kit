@@ -7,7 +7,7 @@
 ##
 ## Initialize stack and site (full reset)
 ##
-## Usage: fin init
+## Usage: fin init-site "Theme Name" theme_machine_name
 
 # Abort if anything fails
 set -e
@@ -70,9 +70,9 @@ composer_install ()
 site_install ()
 {
     echo -e "${green} Installing site...${NC}"
-    # TODO: Implement for self project.
-    echo -e "${red}TODO: Implement for self project.${red}"
-    # fin pull db
+    cd $DOCROOT_PATH
+    # We disable email sending here so site-install does not return an error
+    fin drush site-install -y --site-name='DRUPAL 8 Starter Kit' --account-name='admin' --account-pass='admin'
 }
 
 post_install ()
@@ -83,15 +83,16 @@ post_install ()
   fin drush updb -y
 
   echo-yellow "Importing configuration sync files ..."
-  fin drush cim -y
+#  fin drush cim -y
 
   echo-green "Change admin password ..."
   fin drush upwd "admin" --password="admin"
 
   echo-yellow "Enabling and configuring stage_file_proxy ..."
-  fin drush en stage_file_proxy -y
+#  fin drush en stage_file_proxy -y
 
   echo-yellow "Enabling developer modules ..."
+#  fin drush en devel -y
 
   echo-yellow "Clearing cache ..."
   fin drush cr
@@ -100,11 +101,13 @@ post_install ()
 # Install site or create
 site_theme ()
 {
-    echo-yellow "Build theme styles"
-    if [ -f "${MAIN_THEME_PATH}/package-lock.json" ]; then
-       rm "${MAIN_THEME_PATH}/package-lock.json"
-    fi
-    fin tb
+  fin drush en components radix -y
+  echo "All Arguments values:" $@
+  fin drush radix "$2" --machine_name=$3
+  fin exec "mv /var/www/docroot/themes/$3 /var/www/docroot/themes/custom"
+  fin drush en $3 -y
+  fin drush config-set system.theme default $3 -y
+  fin exec "cd /var/www/docroot/themes/custom/$3/; npm install; npm run dev"
 }
 #-------------------------- END: Functions --------------------------------
 
