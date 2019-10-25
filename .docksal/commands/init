@@ -104,7 +104,7 @@ site_theme ()
     if [ -f "${MAIN_THEME_PATH}/package-lock.json" ]; then
        rm "${MAIN_THEME_PATH}/package-lock.json"
     fi
-    fin tb
+    fin tb production
 }
 #-------------------------- END: Functions --------------------------------
 
